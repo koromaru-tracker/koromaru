@@ -9,10 +9,10 @@ import (
 type User struct {
 	gorm.Model
 	ID       uuid.UUID `gorm:"primaryKey,index:idx_user_id,unique"`
-	Username string    `json:"username"`
-	Password string    `json:"password"`
-	Email    string    `json:"email"`
-	PassKey  string    `json:"passkey"`
+	Username string
+	Password string
+	Email    string
+	PassKey  string `gorm:"index:idx_user_passkey"`
 }
 
 func (u *User) Create(db *gorm.DB) error {
