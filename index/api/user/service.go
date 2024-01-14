@@ -34,3 +34,20 @@ func Get(c *fiber.Ctx) error {
 
 	return c.JSON(users)
 }
+
+func GetPassKeys(c *fiber.Ctx) error {
+	db := index.GetLocal[*gorm.DB](c, "db")
+
+	user := new(model.User)
+	users, err := user.GetAll(db)
+	if err != nil {
+		return err
+	}
+
+	var passkeys []string
+	for _, u := range users {
+		passkeys = append(passkeys, u.PassKey)
+	}
+
+	return c.JSON(passkeys)
+}

@@ -12,6 +12,7 @@ func RegisterRoutes(app *fiber.App) *fiber.App {
 
 	// User Routes
 	v1.Get("/users", user.Get)
+	v1.Get("/users/passkeys", user.GetPassKeys)
 	v1.Post("/users", user.Create)
 
 	// Torrent Routes
