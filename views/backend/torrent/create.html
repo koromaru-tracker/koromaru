@@ -1,22 +1,105 @@
 {{template "partials/header-backend" .}}
 
-<h1>{{.Title}}</h1>
-<form action="/backend/torrent/create" method="post">
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Name">
-    </div>
-    <div>
-        <label for="description">Description</label>
-        <textarea id="description" name="description" placeholder="Description"></textarea>
-    </div>
-    <div>
-        <label for="file">Torrent File</label>
-        <input type="file" id="file" name="file">
-    </div>
-    <div>
-        <input type="submit" value="Create">
-    </div>
-</form>
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <h2>Create Torrent</h2>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Instructions</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Hints</h6>
+                            <small class="text-body-secondary">Bitte beachte unsere allgemeinen Upload-Regeln sowie
+                                unsere Naming-Regeln für P2P-Releases.</small>
+                            <br /><br />
+                            <small class="text-body-secondary">Das Hochladen von Releases gesperrter Groups ist
+                                untersagt. Für bestimmte Groups gibt es außerdem einen Uploadbonus.</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Blocked</h6>
+                            <small class="text-body-secondary">1XBET, 2dead, CTFOH, EMVY, FORMBA, FSX, FuN, GETB8, HELD,
+                                kala, Kristallprinz, LAW, LuRCH, MBA, MEGA, N2D2, OJ, omikron, ORCA88, PaZ, Pendeti, PL,
+                                POE, PS, SHOWE, SHOWEHD, SunDry, TFARC, TVARCHiV, Whistler, WOTT, ZaidaNulled</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3">Upload Torrent</h4>
+                <form action="/backend/torrent/create" method="post" class="needs-validation" novalidate="">
+                    <div class="row g-3">
+
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <fieldset disabled>
+                                <label for="disabledTextInput" class="form-label">Announce URL</label>
+                                <input type="text" id="disabledTextInput" class="form-control"
+                                    placeholder="http://localhost:6969/announce">
+                                </fieldset>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12">
+                            <div class="input-group has-validation">
+                                <span class="input-group-text">Title</span>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Ghostbusters 1984" required="">
+                                <div class="invalid-feedback">
+                                    Title is required.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Category</option>
+                                <option value="movie">Movie</option>
+                                <option value="serie">Serie</option>
+                                <option value="music">Music</option>
+                              </select>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Torrent File</label>
+                                <input class="form-control" type="file" id="formFile">
+                              </div>
+                        </div>                              
+
+                        <div class="col-12">
+                            <div class="input-group">
+                                <span class="input-group-text">Description</span>
+                                <textarea class="form-control" name="description" aria-label="With textarea"
+                                    rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="input-group has-validation">
+                                <span class="input-group-text">Preview Image</span>
+                                <input type="text" class="form-control" id="preview_img" name="preview_img"
+                                    placeholder="https://i.imgur.com/test.png">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr class="my-4">
+
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">Create Torrent</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
 
 {{template "partials/footer" .}}

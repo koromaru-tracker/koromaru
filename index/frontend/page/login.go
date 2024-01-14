@@ -15,7 +15,7 @@ import (
 func Login(c *fiber.Ctx) error {
 	return c.Render("login", fiber.Map{
 		"Title": "Login",
-	})
+	}, "layouts/enter")
 }
 
 func LoginRequest(c *fiber.Ctx) error {

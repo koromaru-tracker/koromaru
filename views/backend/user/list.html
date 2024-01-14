@@ -1,13 +1,18 @@
 {{template "partials/header-backend" .}}
 
-<h1>{{.Title}}</h1>
+<main>
+    <div class="container px-4 py-5 mt-5" id="user">
+        <h2 class="pb-2 border-bottom">{{.Title}}</h2>
+        <ul>
+            {{range .Users}}
+            <li>
+                <a href="/backend/user/view/{{.ID}}">{{.Username}}</a>
+            </li>
+            {{end}}
+        </ul>
+        
+    </div>
+</main>
 
-<ul>
-    {{range .Users}}
-    <li>
-        <a href="/backend/user/view/{{.ID}}">{{.Username}}</a>
-    </li>
-    {{end}}
-</ul>
 
 {{template "partials/footer" .}}
