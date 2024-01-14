@@ -1,4 +1,5 @@
 name: Koromaru
+jwt_secret: secret
 
 database:
   provider: sqlite
