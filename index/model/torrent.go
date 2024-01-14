@@ -11,3 +11,8 @@ type Torrent struct {
 	Name        string
 	Description string
 }
+
+func (t *Torrent) Create(db *gorm.DB) error {
+	t.ID = uuid.New()
+	return db.Create(t).Error
+}
