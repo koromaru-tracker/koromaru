@@ -1,0 +1,8 @@
+name: Koromaru
+
+database:
+  provider: sqlite
+  path: koromaru.db
+
+webserver:
+  port: 4000
