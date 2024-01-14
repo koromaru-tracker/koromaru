@@ -11,6 +11,8 @@ func RegisterRoutes(app *fiber.App) *fiber.App {
 	app.Get("/", page.Index)
 	app.Get("/login", page.Login)
 	app.Post("/login", page.LoginRequest)
+	app.Get("/register", page.Register)
+	app.Post("/register", page.RegisterRequest)
 
 	jwt := middleware.NewAuthMiddleware("test")
 
