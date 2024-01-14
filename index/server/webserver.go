@@ -20,6 +20,7 @@ func Serve(cfg *types.Config, db *gorm.DB) {
 		return c.Next()
 	})
 
+	app = Configure(app)
 	app = api.RegisterRoutes(app)
 
 	log.Fatal(app.Listen(":" + cfg.Webserver.Port))
